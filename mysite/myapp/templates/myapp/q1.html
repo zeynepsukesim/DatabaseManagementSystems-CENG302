@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Query 1</title>
+</head>
+<body>
+    Query results for query 1:
+    <br>
+    <table>
+        <tr>
+            <td>Disease Code</td>
+            <td>Disease Type Description</td>
+            <td>First Enc Date</td>
+        </tr>
+      {% for row in data %}
+        <tr>
+            {%for celldata in row%}
+            <td>{{celldata}}</td>
+            {%endfor%}
+        </tr>
+      {% endfor %}
+    </table>
+</body>
+</html>

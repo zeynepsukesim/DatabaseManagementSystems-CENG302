@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Query 11</title>
+</head>
+<body>
+    Query results for query 11:
+    <br>
+    <table>
+        <tr>
+            <td>Treated Patients</td>
+            <td>Disease Code</td>
+        </tr>
+      {% for row in data %}
+        <tr>
+            {%for celldata in row%}
+            <td>{{celldata}}</td>
+            {%endfor%}
+        </tr>
+      {% endfor %}
+    </table>
+</body>
+</html>

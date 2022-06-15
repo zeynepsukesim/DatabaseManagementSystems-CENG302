@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Query 4</title>
+</head>
+<body>
+    Query results for query 4:
+    <br>
+    <table>
+        <tr>
+            <td>Name</td>
+            <td>Average Salary</td>
+        </tr>
+      {% for row in data %}
+        <tr>
+            {%for celldata in row%}
+            <td>{{celldata}}</td>
+            {%endfor%}
+        </tr>
+      {% endfor %}
+    </table>
+</body>
+</html>

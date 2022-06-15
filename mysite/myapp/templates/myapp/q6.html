@@ -5,6 +5,20 @@
     <title>Query 6</title>
 </head>
 <body>
+<br>
+    <table>
+        <tr>
+            <td>E-mail</td>
+        </tr>
+      {% for row in rows %}
+        <tr>
+            {%for celldata in row%}
+            <td>{{celldata}}</td>
+            {%endfor%}
+        </tr>
+      {% endfor %}
+    </table>
+<br>
     {{data}}
 </body>
 </html>

@@ -2,9 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Query 7</title>
+    <title>Query 6</title>
 </head>
 <body>
+<br>
+    <table>
+        <tr>
+            <td>Name</td>
+            <td>Surname </td>
+        </tr>
+      {% for row in rows %}
+        <tr>
+            {%for celldata in row%}
+            <td>{{celldata}}</td>
+            {%endfor%}
+        </tr>
+      {% endfor %}
+    </table>
+<br>
     {{data}}
 </body>
 </html>

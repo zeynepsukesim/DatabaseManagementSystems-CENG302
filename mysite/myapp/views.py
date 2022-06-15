@@ -95,6 +95,13 @@ def q5(request):
 def q6(request):
     with connection.cursor() as cursor:
         cursor.execute(
+            "SELECT r.email_id "
+            "FROM myapp_Record r "
+            "WHERE r.disease_code_id = 'Covid-19'"
+            "group by r.email_id "
+        )
+        rows = cursor.fetchall()
+        cursor.execute(
             "UPDATE myapp_Users  "
             "SET salary = salary*2 "
             "WHERE email in ( "
@@ -104,13 +111,20 @@ def q6(request):
             "    group by r.email_id "
             "    having count(*) > 3) "
         )
-    context = {'data': "successfully updated"}
+    context = {'rows': rows, 'data': "users with above emails successfully updated"}
     return render(request, 'myapp/q6.html', context)
 
 
 def q7(request):
+    with connection.cursor() as cursor:
+        cursor.execute(
+            "SELECT u.name, u.surname "
+            "FROM myapp_Users U "
+            "WHERE u.surname ILIKE '%alp%' "
+        )
+        rows = cursor.fetchall()
     Users.objects.filter(surname__icontains='alp').delete()
-    context = {'data': "successfully deleted"}
+    context = {'rows': rows, 'data': "above users are deleted"}
     return render(request, 'myapp/q7.html', context)
 
 
